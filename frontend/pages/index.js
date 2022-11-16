@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { Section } from "../components";
+import { Section, Header, Text, Footer } from "../components";
 
 const Home = () => {
   return (
@@ -11,12 +11,17 @@ const Home = () => {
           content="Capstone project for Digital University Dev Team"
         />
         <link rel="icon" href="/favicon.ico" />
+        <link
+          href="https://fonts.googleapis.com/css?family=Poppins"
+          rel="stylesheet"
+        />
       </Head>
+
+      <Header></Header>
       <Section>
-        {/*
-          PAGE CONTENT GOES HERE
-        */}
+        <Text fontSize={"3em"}>Hello World!</Text>
       </Section>
+      <Footer></Footer>
     </>
   );
 };
