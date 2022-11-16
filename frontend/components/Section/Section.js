@@ -3,19 +3,21 @@ import styled from "@emotion/styled";
 const StyledSection = styled.section`
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: left;
   flex: 1 1 auto;
   padding: 3rem 1rem;
+  height: calc(100vh - 9rem);
   background: #dfdfdf;
   margin: 0;
 `;
 
 const Container = styled.div`
-  display: flex;
+  align-content: flex-start;
+  display: inline-block;
   flex-direction: column;
-  width: 100%;
   max-width: 1240px;
-  margin: 0;
+  height: 100%;
+  margin: 5% 5%;
   gap: 1rem;
 `;
 
