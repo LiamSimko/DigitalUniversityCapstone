@@ -30,16 +30,16 @@ const Logo = styled.img`
   padding: 1%;
 `;
 
-const Header = ({ children }) => {
-  return (
-    <HeaderWrapper>
-      <Container>
-        <Logo src="DU-Logo-Mark.svg" alt="Digital U Logo" />
-        <Text fontWeight={'bold'} fontSize={'30px'}>Liam Simko Capstone</Text>
-        {children}
-      </Container>
-    </HeaderWrapper>
-  );
-};
+const Header = ({ children }) => (
+  <HeaderWrapper>
+    <Container>
+      <Logo src="DU-Logo-Mark.svg" alt="Digital U Logo" />
+      <Text fontWeight={"1000"} fontSize={"30px"}>
+        Liam Simko Capstone
+      </Text>
+      {children}
+    </Container>
+  </HeaderWrapper>
+);
 
 export default Header;

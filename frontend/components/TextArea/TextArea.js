@@ -1,17 +1,24 @@
 import styled from "@emotion/styled";
 
-const StyledTextWrap = styled.text`
+const StyledTextArea = styled.textarea`
   font-family: Poppins;
-  font-size: ${({ fontSize }) => fontSize};
+  font-size: ${({ fontSize }) => fontSize ?? "inherit"};
   font-weight: ${({ fontWeight }) => fontWeight ?? "inherit"};
   text-align: ${({ textAlign }) => textAlign ?? "inherit"};
   letter-spacing: ${({ letterSpacing }) => letterSpacing};
   line-height: ${({ lineHeight }) => lineHeight};
   color: ${({ textColor }) => textColor};
   font-style: ${({ fontStyle }) => fontStyle};
+  border: 2px solid LightGrey;
+  border-radius: 6px;
+  padding: 5px 5px;
+  width: 97%;
+  height: 6em;
+  resize: none;
+  margin: ${({ margin }) => margin};
 `;
 
-const Text = ({
+const TextArea = ({
   children,
   fontFamily,
   fontSize,
@@ -21,9 +28,10 @@ const Text = ({
   lineHeight,
   textColor,
   fontStyle,
+  margin,
   ...rest
 }) => (
-  <StyledTextWrap
+  <StyledTextArea
     fontFamily={fontFamily}
     fontSize={fontSize}
     fontWeight={fontWeight}
@@ -32,10 +40,10 @@ const Text = ({
     lineHeight={lineHeight}
     textColor={textColor}
     fontStyle={fontStyle}
+    margin={margin}
     {...rest}
-  >
-    {children}
-  </StyledTextWrap>
+    type={"text"}
+  ></StyledTextArea>
 );
 
-export default Text;
+export default TextArea;

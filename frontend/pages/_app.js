@@ -1,10 +1,8 @@
-import "../styles/global.css";
+import '../styles/global.css';
 
-const App = ({ Component, pageProps }) => {
-  return (
-    <Component {...pageProps}>
-    </Component>
-  );
-};
+const App = ({Component, pageProps}) => (
+	<Component {...pageProps}>
+	</Component>
+);
 
 export default App;

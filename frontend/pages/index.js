@@ -1,7 +1,30 @@
 import Head from "next/head";
-import { Section, Header, Text, Footer } from "../components";
+import React, { useState } from "react";
+import {
+  Section,
+  Header,
+  Text,
+  Footer,
+  Button,
+  Flex,
+  Grid,
+  Book,
+  AddBookModal,
+} from "../components";
+
+const books = [
+  { title: "This is my First Book Title", author: "Author Name" },
+  { title: "This is my Second Book Title", author: "Author Name" },
+  { title: "This is my Third Book Title", author: "Author Name" },
+];
 
 const Home = () => {
+  const [showModal, setShowModal] = useState(false);
+
+  const toggleModal = () => {
+    setShowModal(!showModal);
+    console.log(showModal);
+  };
   return (
     <>
       <Head>
@@ -18,8 +41,26 @@ const Home = () => {
       </Head>
 
       <Header></Header>
+
+      {showModal && (
+        <AddBookModal closeModal={() => toggleModal()}></AddBookModal>
+      )}
       <Section>
-        <Text fontSize={"3em"}>Hello World!</Text>
+        <Flex direction={"row"} justify={"space-between"}>
+          <Text fontWeight={"Bolder"} fontSize={"2.2rem"}>
+            My Library
+          </Text>
+          <Button onClick={() => toggleModal()}>+ Add Book</Button>
+        </Flex>
+        <Grid
+          gap={"30px"}
+          gridTemplate={"auto/ 1fr 1fr 1fr 1fr"}
+          margin={"2em 0em 0em"}
+        >
+          {books.map((book) => {
+            return <Book title={book.title} author={book.author} />;
+          })}
+        </Grid>
       </Section>
       <Footer></Footer>
     </>

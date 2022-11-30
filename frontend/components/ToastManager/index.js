@@ -1,1 +1,1 @@
-export { default } from "./ToastManager";
+export {default} from './ToastManager.js';

@@ -1,17 +1,22 @@
 import styled from "@emotion/styled";
 
-const StyledTextWrap = styled.text`
+const StyledInput = styled.input`
   font-family: Poppins;
-  font-size: ${({ fontSize }) => fontSize};
+  font-size: ${({ fontSize }) => fontSize ?? "inherit"};
   font-weight: ${({ fontWeight }) => fontWeight ?? "inherit"};
   text-align: ${({ textAlign }) => textAlign ?? "inherit"};
   letter-spacing: ${({ letterSpacing }) => letterSpacing};
   line-height: ${({ lineHeight }) => lineHeight};
   color: ${({ textColor }) => textColor};
   font-style: ${({ fontStyle }) => fontStyle};
+  margin: ${({ margin }) => margin};
+  border: 2px solid LightGrey;
+  border-radius: 6px;
+  padding: 5px 5px;
+  width: 97%;
 `;
 
-const Text = ({
+const Input = ({
   children,
   fontFamily,
   fontSize,
@@ -21,9 +26,10 @@ const Text = ({
   lineHeight,
   textColor,
   fontStyle,
+  margin,
   ...rest
 }) => (
-  <StyledTextWrap
+  <StyledInput
     fontFamily={fontFamily}
     fontSize={fontSize}
     fontWeight={fontWeight}
@@ -32,10 +38,10 @@ const Text = ({
     lineHeight={lineHeight}
     textColor={textColor}
     fontStyle={fontStyle}
+    margin={margin}
     {...rest}
-  >
-    {children}
-  </StyledTextWrap>
+    type={"text"}
+  ></StyledInput>
 );
 
-export default Text;
+export default Input;
