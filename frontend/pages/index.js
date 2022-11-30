@@ -11,15 +11,26 @@ import {
   Book,
   AddBookModal,
 } from "../components";
-
-const books = [
-  { title: "This is my First Book Title", author: "Author Name" },
-  { title: "This is my Second Book Title", author: "Author Name" },
-  { title: "This is my Third Book Title", author: "Author Name" },
-];
+import { useGetBooks } from "../api/books.js";
 
 const Home = () => {
   const [showModal, setShowModal] = useState(false);
+  //const { books } = useGetBooks();
+
+  const books = [
+    {
+      title: "This is my First Book Title",
+      author: { firstName: "Author", lastName: "Name" },
+    },
+    {
+      title: "This is my Second Book Title",
+      author: { firstName: "Author", lastName: "Name" },
+    },
+    {
+      title: "This is my Third Book Title",
+      author: { firstName: "Author", lastName: "Name" },
+    },
+  ];
 
   const toggleModal = () => {
     setShowModal(!showModal);
@@ -58,7 +69,12 @@ const Home = () => {
           margin={"2em 0em 0em"}
         >
           {books.map((book) => {
-            return <Book title={book.title} author={book.author} />;
+            return (
+              <Book
+                title={book.title}
+                author={`${book.author.firstName} ${book.author.lastName}`}
+              />
+            );
           })}
         </Grid>
       </Section>
