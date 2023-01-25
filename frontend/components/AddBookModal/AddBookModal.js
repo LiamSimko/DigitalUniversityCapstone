@@ -31,8 +31,8 @@ const StyledForm = styled.form`
 `;
 
 const AddBookModal = ({ closeModal, ...props }) => {
-  const { addBook, addBookData } = useAddBook();
-  const { addAuthor, addAuthorData } = useAddAuthor();
+  const { addBook } = useAddBook();
+  const { addAuthor } = useAddAuthor();
   const { authors } = useGetAuthors();
   const { register, handleSubmit } = useForm();
   const ref = React.createRef();
