@@ -16,7 +16,6 @@ const StyledButton = styled.button`
 const Button = ({
   children,
   onClick,
-  direction = "row",
   border,
   color,
   backgroundColor,

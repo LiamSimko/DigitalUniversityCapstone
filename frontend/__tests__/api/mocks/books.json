@@ -1,0 +1,41 @@
+[
+  {
+    "id": "0",
+    "title": "test1",
+    "coverImage": null,
+    "author": {
+      "id": "1",
+      "firstName": "AuthorFNb",
+      "lastName": "AuthorLNb",
+      "__typename": "Author"
+    },
+    "description": "test book number 1",
+    "__typename": "Book"
+  },
+  {
+    "id": "1",
+    "title": "test2",
+    "coverImage": null,
+    "author": {
+      "id": "1",
+      "firstName": "AuthorFNb",
+      "lastName": "AuthorLNb",
+      "__typename": "Author"
+    },
+    "description": "test book number 2",
+    "__typename": "Book"
+  },
+  {
+    "id": "2",
+    "title": "test3",
+    "coverImage": null,
+    "author": {
+      "id": "2",
+      "firstName": "AuthorFNc",
+      "lastName": "AuthorLNc",
+      "__typename": "Author"
+    },
+    "description": "test book number 3",
+    "__typename": "Book"
+  }
+]

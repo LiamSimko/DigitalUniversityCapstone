@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import { forwardRef } from "react";
 
 const StyledTextArea = styled.textarea`
   font-family: Poppins;
@@ -18,32 +19,39 @@ const StyledTextArea = styled.textarea`
   margin: ${({ margin }) => margin};
 `;
 
-const TextArea = ({
-  children,
-  fontFamily,
-  fontSize,
-  fontWeight,
-  textAlign,
-  letterSpacing,
-  lineHeight,
-  textColor,
-  fontStyle,
-  margin,
-  ...rest
-}) => (
-  <StyledTextArea
-    fontFamily={fontFamily}
-    fontSize={fontSize}
-    fontWeight={fontWeight}
-    textAlign={textAlign}
-    letterSpacing={letterSpacing}
-    lineHeight={lineHeight}
-    textColor={textColor}
-    fontStyle={fontStyle}
-    margin={margin}
-    {...rest}
-    type={"text"}
-  ></StyledTextArea>
+const TextArea = forwardRef(
+  (
+    {
+      children,
+      fontFamily,
+      fontSize,
+      fontWeight,
+      textAlign,
+      letterSpacing,
+      lineHeight,
+      textColor,
+      fontStyle,
+      margin,
+      ...rest
+    },
+    ref
+  ) => (
+    <StyledTextArea
+      data-testid="textarea"
+      fontFamily={fontFamily}
+      fontSize={fontSize}
+      fontWeight={fontWeight}
+      textAlign={textAlign}
+      letterSpacing={letterSpacing}
+      lineHeight={lineHeight}
+      textColor={textColor}
+      fontStyle={fontStyle}
+      margin={margin}
+      ref={ref}
+      {...rest}
+      type={"text"}
+    ></StyledTextArea>
+  )
 );
 
 export default TextArea;

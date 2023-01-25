@@ -11,11 +11,9 @@ import {
   Book,
   AddBookModal,
 } from "../components";
-import { useGetBooks } from "../api/books.js";
 
 const Home = () => {
   const [showModal, setShowModal] = useState(false);
-  //const { books } = useGetBooks();
 
   const books = [
     {
@@ -34,8 +32,8 @@ const Home = () => {
 
   const toggleModal = () => {
     setShowModal(!showModal);
-    console.log(showModal);
   };
+
   return (
     <>
       <Head>

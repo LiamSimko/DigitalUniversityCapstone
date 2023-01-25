@@ -8,10 +8,8 @@ const {
   publicRuntimeConfig: { apiUrl },
 } = getConfig();
 const client = new ApolloClient({
-  link: createUploadLink({
-    uri: apiUrl,
-  }),
-  cache: new InMemoryCache({ addTypename: false }),
+  uri: apiUrl,
+  cache: new InMemoryCache(),
 });
 
 const App = ({ Component, pageProps }) => (

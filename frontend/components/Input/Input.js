@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import { forwardRef } from "react";
 
 const StyledInput = styled.input`
   font-family: Poppins;
@@ -16,32 +17,39 @@ const StyledInput = styled.input`
   width: 97%;
 `;
 
-const Input = ({
-  children,
-  fontFamily,
-  fontSize,
-  fontWeight,
-  textAlign,
-  letterSpacing,
-  lineHeight,
-  textColor,
-  fontStyle,
-  margin,
-  ...rest
-}) => (
-  <StyledInput
-    fontFamily={fontFamily}
-    fontSize={fontSize}
-    fontWeight={fontWeight}
-    textAlign={textAlign}
-    letterSpacing={letterSpacing}
-    lineHeight={lineHeight}
-    textColor={textColor}
-    fontStyle={fontStyle}
-    margin={margin}
-    {...rest}
-    type={"text"}
-  ></StyledInput>
+const Input = forwardRef(
+  (
+    {
+      children,
+      fontFamily,
+      fontSize,
+      fontWeight,
+      textAlign,
+      letterSpacing,
+      lineHeight,
+      textColor,
+      fontStyle,
+      margin,
+      ...rest
+    },
+    ref
+  ) => (
+    <StyledInput
+      data-testid={"input"}
+      fontFamily={fontFamily}
+      fontSize={fontSize}
+      fontWeight={fontWeight}
+      textAlign={textAlign}
+      letterSpacing={letterSpacing}
+      lineHeight={lineHeight}
+      textColor={textColor}
+      fontStyle={fontStyle}
+      margin={margin}
+      ref={ref}
+      {...rest}
+      type={"text"}
+    ></StyledInput>
+  )
 );
 
 export default Input;

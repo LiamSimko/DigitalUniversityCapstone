@@ -14,3 +14,4 @@ export { default as Toast } from "./Toast";
 export { default as Flex } from "./Flex";
 export { default as Input } from "./Input";
 export { default as Grid } from "./Grid";
+export { default as TextArea } from "./TextArea";

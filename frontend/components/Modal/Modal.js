@@ -50,7 +50,9 @@ const Modal = ({ children, closeModal, title, ...props }) => (
     <StyledModal onClick={null}>
       <ModalHeader>
         <Text>{title}</Text>
-        <CloseButton onClick={closeModal}>&times;</CloseButton>
+        <CloseButton data-testid={"close-button"} onClick={closeModal}>
+          &times;
+        </CloseButton>
       </ModalHeader>
       {children}
     </StyledModal>
