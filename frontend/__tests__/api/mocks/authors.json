@@ -1,0 +1,20 @@
+[
+  {
+    "id": "0",
+    "firstName": "AuthorFNa",
+    "lastName": "AuthorLNa",
+    "__typename": "Author"
+  },
+  {
+    "id": "1",
+    "firstName": "AuthorFNb",
+    "lastName": "AuthorLNb",
+    "__typename": "Author"
+  },
+  {
+    "id": "2",
+    "firstName": "AuthorFNc",
+    "lastName": "AuthorLNc",
+    "__typename": "Author"
+  }
+]

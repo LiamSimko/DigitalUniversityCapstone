@@ -6,7 +6,7 @@ const StyledSection = styled.section`
   align-items: left;
   flex: 1 1 auto;
   padding: 3rem 1rem;
-  height: calc(100vh - 9rem);
+  min-height: calc(100vh - 9rem);
   background: #dfdfdf;
   margin: 0;
 `;
@@ -15,18 +15,15 @@ const Container = styled.div`
   align-content: flex-start;
   display: inline-block;
   flex-direction: column;
-  max-width: 1240px;
   height: 100%;
-  margin: 5% 5%;
+  margin: 5%;
   gap: 1rem;
 `;
 
-const Section = ({ children }) => {
-  return (
-    <StyledSection>
-      <Container>{children}</Container>
-    </StyledSection>
-  );
-};
+const Section = ({ children }) => (
+  <StyledSection>
+    <Container>{children}</Container>
+  </StyledSection>
+);
 
 export default Section;

@@ -12,16 +12,15 @@ const StyledFooter = styled.div`
   padding: 0;
   margin: 0;
   background-color: black;
+  
 `;
 
-const Footer = () => {
-  return (
-    <StyledFooter>
-      <Text textColor={"white"} fontSize={"20px"}>
-        DIGITAL UNIVERSITY INCORPERATED
-      </Text>
-    </StyledFooter>
-  );
-};
+const Footer = () => (
+  <StyledFooter>
+    <Text textColor={"white"} fontSize={"20px"}>
+      DIGITAL UNIVERSITY INCORPERATED
+    </Text>
+  </StyledFooter>
+);
 
 export default Footer;

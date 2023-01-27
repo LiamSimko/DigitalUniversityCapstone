@@ -1,2 +1,2 @@
-export { default as ToastProvider } from "./ToastProvider";
-export { default as ToastContext } from "./contexts";
+export {default as ToastProvider} from './ToastProvider.js';
+export {default as ToastContext} from './contexts.js';

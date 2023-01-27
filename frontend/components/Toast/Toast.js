@@ -1,5 +1,5 @@
-import styled from "@emotion/styled";
-import { Checkmark, Error } from "@carbon/icons-react";
+import styled from '@emotion/styled';
+import {Checkmark, Error} from '@carbon/icons-react';
 
 const StyledToast = styled.div`
   display: flex;
@@ -8,14 +8,14 @@ const StyledToast = styled.div`
   gap: 0.5rem;
   padding: 0.5rem 1rem;
   border-radius: 0.5rem;
-  ${(props) =>
-    props.type === "success"
-      ? `
+  ${props =>
+		props.type === 'success'
+			? `
     background: #d4edda;
     color: #155724;
     border: 1px solid #c3e6cb;
     `
-      : `
+			: `
     background: #f8d7da;
     color: #721c24;
     border: 1px solid #f5c6cb;
@@ -57,16 +57,14 @@ const StyledToastMessage = styled.p`
   color: #000;
 `;
 
-const Toast = ({ message, type }) => {
-  return (
-    <StyledToast type={type}>
-      {type === "success" ? <Checkmark /> : <Error />}
-      <StyledToastTitle>
-        {type === "success" ? "Success!" : "Error!"}
-      </StyledToastTitle>
-      <StyledToastMessage>{message}</StyledToastMessage>
-    </StyledToast>
-  );
-};
+const Toast = ({message, type}) => (
+	<StyledToast type={type}>
+		{type === 'success' ? <Checkmark /> : <Error />}
+		<StyledToastTitle>
+			{type === 'success' ? 'Success!' : 'Error!'}
+		</StyledToastTitle>
+		<StyledToastMessage>{message}</StyledToastMessage>
+	</StyledToast>
+);
 
 export default Toast;

@@ -62,6 +62,6 @@ export const useAddAuthor = (firstName, lastName) => {
       add({ variables: { firstName, lastName } }),
     addAuthorLoading: loading,
     addAuthorError: error,
-    addAuthorData: data,
+    addAuthorData: data?.addAuthor || null,
   };
 };
