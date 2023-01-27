@@ -2,15 +2,21 @@ import styled from "@emotion/styled";
 
 const StyledFlex = styled.div`
   display: flex;
-  align-items: center;
+  align-items: ${({ align }) => align ?? "center"};
   flex-wrap: wrap;
   ${({ direction }) => `flex-direction: ${direction};`}
   ${({ justify }) => `justify-content: ${justify};`}
   ${({ gap }) => `gap: ${gap};`}
 `;
 
-const Flex = ({ children, direction, justify, gap, ...props }) => (
-  <StyledFlex direction={direction} justify={justify} gap={gap} {...props}>
+const Flex = ({ children, direction, justify, gap, align, ...props }) => (
+  <StyledFlex
+    direction={direction}
+    align={align}
+    justify={justify}
+    gap={gap}
+    {...props}
+  >
     {children}
   </StyledFlex>
 );

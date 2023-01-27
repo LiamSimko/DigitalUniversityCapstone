@@ -2,9 +2,8 @@ import styled from "@emotion/styled";
 import Text from "../Text";
 
 const StyledBreadcrumbList = styled.ul`
-  padding: 10px 16px;
+  padding: 10px 0px;
   list-style: none;
-  background-color: #eee;
 `;
 
 const StyledBreadcrumb = styled.li`
@@ -14,6 +13,8 @@ const StyledBreadcrumb = styled.li`
 
 const StyledText = styled.a`
   font-family: Poppins;
+  text-decoration: none;
+  color: black;
   "&:hover": {
     text-decoration: underline;
   }
@@ -22,11 +23,20 @@ const StyledText = styled.a`
 const Breadcrumb = ({ children, links, ...props }) => (
   <StyledBreadcrumbList {...props}>
     {links.map((link) => {
-      return <StyledBreadcrumb></StyledBreadcrumb>;
+      if (link.href) {
+        return (
+          <StyledBreadcrumb>
+            <StyledText href={link.href}>{link.name} / </StyledText>
+          </StyledBreadcrumb>
+        );
+      } else {
+        return (
+          <StyledBreadcrumb>
+            <Text fontWeight={"Bolder"}>{link.name}</Text>
+          </StyledBreadcrumb>
+        );
+      }
     })}
-    <Text fontSize={"1.5em"} fontWeight={"Bolder"}>
-      {title}
-    </Text>
   </StyledBreadcrumbList>
 );
 

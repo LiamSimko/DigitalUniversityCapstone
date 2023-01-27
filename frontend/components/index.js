@@ -15,3 +15,4 @@ export { default as Flex } from "./Flex";
 export { default as Input } from "./Input";
 export { default as Grid } from "./Grid";
 export { default as TextArea } from "./TextArea";
+export { default as Breadcrumb } from "./Breadcrumb";

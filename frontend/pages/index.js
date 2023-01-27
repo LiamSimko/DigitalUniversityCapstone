@@ -1,4 +1,3 @@
-import Head from "next/head";
 import React, { useEffect, useState } from "react";
 import {
   Section,
@@ -31,25 +30,12 @@ const Home = () => {
 
   return (
     <>
-      <Head>
-        <title>DU Capstone</title>
-        <meta
-          name="description"
-          content="Capstone project for Digital University Dev Team"
-        />
-        <link rel="icon" href="/favicon.ico" />
-        <link
-          href="https://fonts.googleapis.com/css?family=Poppins"
-          rel="stylesheet"
-        />
-      </Head>
-
-      <Header></Header>
+      <Header />
 
       {showModal && (
         <AddBookModal closeModal={() => toggleModal()}></AddBookModal>
       )}
-      <Section>
+      <Section background={"#dfdfdf"}>
         <Flex direction={"row"} justify={"space-between"}>
           <Text fontWeight={"Bolder"} fontSize={"2.2rem"}>
             My Library
@@ -67,6 +53,10 @@ const Home = () => {
                 <Book
                   title={book.title}
                   author={`${book.author.firstName} ${book.author.lastName}`}
+                  href={{
+                    pathname: `/book-details/${book.id}`,
+                    query: { keyword: "book" },
+                  }}
                 />
               );
             })}

@@ -16,15 +16,24 @@ const StyledCard = styled.div`
   justify-content: center;
 `;
 
-const Book = ({ children, title, author, ...props }) => (
-  <StyledCard {...props}>
-    <Text fontSize={"1.5em"} fontWeight={"Bolder"}>
-      {title}
-    </Text>
-    <Text fontSize={"1em"} fontStyle={"Italic"}>
-      {author}
-    </Text>
-  </StyledCard>
+const StyledLink = styled.a`
+  display: block;
+  height: 100%;
+  width: 100%;
+  text-decoration: none;
+`;
+
+const Book = ({ children, title, author, href, ...props }) => (
+  <StyledLink href={href.pathname}>
+    <StyledCard {...props}>
+      <Text fontSize={"1.5em"} fontWeight={"Bolder"}>
+        {title}
+      </Text>
+      <Text fontSize={"1em"} fontStyle={"Italic"}>
+        {author}
+      </Text>
+    </StyledCard>
+  </StyledLink>
 );
 
 export default Book;

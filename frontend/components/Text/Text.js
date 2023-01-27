@@ -2,7 +2,7 @@ import styled from "@emotion/styled";
 
 const StyledTextWrap = styled.text`
   font-family: Poppins;
-  font-size: ${({ fontSize }) => fontSize};
+  font-size: ${({ fontSize }) => fontSize ?? "inherit"};
   font-weight: ${({ fontWeight }) => fontWeight ?? "inherit"};
   text-align: ${({ textAlign }) => textAlign ?? "inherit"};
   letter-spacing: ${({ letterSpacing }) => letterSpacing};

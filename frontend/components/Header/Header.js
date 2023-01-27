@@ -33,7 +33,7 @@ const Logo = styled.img`
 const Header = ({ children }) => (
   <HeaderWrapper>
     <Container>
-      <Logo src="DU-Logo-Mark.svg" alt="Digital U Logo" />
+      <Logo src="/DU-Logo-Mark.svg" alt="Digital U Logo" />
       <Text fontWeight={"1000"} fontSize={"30px"}>
         Liam Simko Capstone
       </Text>

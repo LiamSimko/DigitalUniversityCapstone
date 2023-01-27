@@ -8,6 +8,7 @@ const StyledSection = styled.section`
   padding: 3rem 1rem;
   min-height: calc(100vh - 9rem);
   background: #dfdfdf;
+  background: ${({ background }) => background ?? ""};
   margin: 0;
 `;
 
@@ -20,8 +21,8 @@ const Container = styled.div`
   gap: 1rem;
 `;
 
-const Section = ({ children }) => (
-  <StyledSection>
+const Section = ({ children, background }) => (
+  <StyledSection background={background}>
     <Container>{children}</Container>
   </StyledSection>
 );
