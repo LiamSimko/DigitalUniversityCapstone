@@ -3,7 +3,7 @@ import { createMockClient } from "mock-apollo-client";
 import userEvent from "@testing-library/user-event";
 import { render, screen } from "@testing-library/react";
 import Index from "../../pages/index.js";
-import { useAddBook } from "../../api/books";
+import { useAddBook, useGetBooks } from "../../api/books";
 import { useAddAuthor, useGetAuthors } from "../../api/authors";
 
 jest.mock("../../api/books");
@@ -46,6 +46,34 @@ describe("Homepage", () => {
           },
         },
       },
+    });
+    useGetBooks.mockReturnValue({
+      booksLoading: false,
+      booksError: false,
+      books: [
+        {
+          id: "13",
+          title: "test",
+          coverImage: null,
+          author: {
+            id: "1",
+            firstName: "name",
+            lastName: "name",
+            __typename: "Author",
+          },
+        },
+        {
+          id: "14",
+          title: "test1",
+          coverImage: null,
+          author: {
+            id: "1",
+            firstName: "name",
+            lastName: "name",
+            __typename: "Author",
+          },
+        },
+      ],
     });
     useGetAuthors.mockReturnValue({
       authorsLoading: false,
