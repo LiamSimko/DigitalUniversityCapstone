@@ -14,19 +14,10 @@ import { useGetBooks } from "../api/books";
 
 const Home = () => {
   const [showModal, setShowModal] = useState(false);
-  const [displayBooks, setDisplayBooks] = useState(false);
   const { books, booksLoading, booksError } = useGetBooks();
   const toggleModal = () => {
     setShowModal(!showModal);
   };
-  useEffect(() => {
-    if (booksError || booksLoading || !books) {
-      setDisplayBooks(false);
-      console.log(books, booksLoading, booksError);
-    } else {
-      setDisplayBooks(true);
-    }
-  }, [books, booksError, booksLoading]);
 
   return (
     <>
@@ -42,7 +33,7 @@ const Home = () => {
           </Text>
           <Button onClick={() => toggleModal()}>+ Add Book</Button>
         </Flex>
-        {displayBooks && (
+        {!booksError && !booksLoading && books && (
           <Grid
             gap={"30px"}
             gridTemplate={"auto/ 1fr 1fr 1fr 1fr"}
