@@ -53,10 +53,7 @@ const Home = () => {
                 <Book
                   title={book.title}
                   author={`${book.author.firstName} ${book.author.lastName}`}
-                  href={{
-                    pathname: `/book-details/${book.id}`,
-                    query: { keyword: "book" },
-                  }}
+                  href={`/book-details/${book.id}`}
                 />
               );
             })}

@@ -24,7 +24,7 @@ const StyledLink = styled.a`
 `;
 
 const Book = ({ children, title, author, href, ...props }) => (
-  <StyledLink href={href.pathname}>
+  <StyledLink href={href} data-testid={"link"}>
     <StyledCard {...props}>
       <Text fontSize={"1.5em"} fontWeight={"Bolder"}>
         {title}

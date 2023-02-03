@@ -3,7 +3,7 @@ import { render, screen } from "@testing-library/react";
 import { MockedProvider } from "@apollo/client/testing";
 import "@testing-library/jest-dom";
 
-describe("Book", () => {
+describe("Breadcrumb", () => {
   it("renders with text", async () => {
     render(
       <MockedProvider addTypename={false}>
