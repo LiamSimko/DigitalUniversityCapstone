@@ -1,11 +1,17 @@
 import { ApolloProvider } from "@apollo/client";
 import { createMockClient } from "mock-apollo-client";
-import userEvent from "@testing-library/user-event";
 import { render, screen } from "@testing-library/react";
 import BookDetails from "../../pages/book-details/[book].js";
 import { useGetBook } from "../../api/books";
 
 jest.mock("../../api/books");
+
+jest.mock("next/router", () => ({
+  useRouter: jest.fn().mockImplementation(() => ({
+    pathname: "/book-details/test",
+    query: { breadCrumbPath: "/", breadCrumbName: "Home" },
+  })),
+}));
 
 describe("Book Description Page", () => {
   let mockClient;

@@ -45,6 +45,8 @@ const Home = () => {
                   title={book.title}
                   author={`${book.author.firstName} ${book.author.lastName}`}
                   href={`/book-details/${book.id}`}
+                  breadCrumbPath={"/"}
+                  breadCrumbName={"Home"}
                 />
               );
             })}

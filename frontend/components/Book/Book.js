@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import { useRouter } from "next/router";
 import Text from "../Text";
 
 const StyledCard = styled.div`
@@ -21,19 +22,26 @@ const StyledLink = styled.a`
   height: 100%;
   width: 100%;
   text-decoration: none;
+  cursor: pointer;
 `;
 
-const Book = ({ children, title, author, href, ...props }) => (
-  <StyledLink href={href} data-testid={"link"}>
-    <StyledCard {...props}>
-      <Text fontSize={"1.5em"} fontWeight={"Bolder"}>
-        {title}
-      </Text>
-      <Text fontSize={"1em"} fontStyle={"Italic"}>
-        {author}
-      </Text>
-    </StyledCard>
-  </StyledLink>
-);
+const Book = ({ children, title, author, href, breadCrumbPath, breadCrumbName, ...props }) => {
+  const router = useRouter();
+  const bookLink = () => {
+    router.push({ pathname: href, query: { breadCrumbPath: breadCrumbPath, breadCrumbName: breadCrumbName } });
+  };
+  return (
+    <StyledLink onClick={bookLink} data-testid={"link"}>
+      <StyledCard {...props}>
+        <Text fontSize={"1.5em"} fontWeight={"Bolder"}>
+          {title}
+        </Text>
+        <Text fontSize={"1em"} fontStyle={"Italic"}>
+          {author}
+        </Text>
+      </StyledCard>
+    </StyledLink>
+  );
+};
 
 export default Book;

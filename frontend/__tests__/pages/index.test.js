@@ -10,6 +10,12 @@ jest.mock("../../api/books");
 
 jest.mock("../../api/authors");
 
+jest.mock("next/router", () => ({
+  useRouter: jest.fn().mockImplementation(() => ({
+    pathname: "/",
+  })),
+}));
+
 describe("Homepage", () => {
   let mockClient;
 

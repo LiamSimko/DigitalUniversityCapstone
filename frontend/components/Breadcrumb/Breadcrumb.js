@@ -11,12 +11,12 @@ const StyledBreadcrumb = styled.li`
   font-size: 18px;
 `;
 
-const StyledText = styled.a`
+const StyledLink = styled.a`
   font-family: Poppins;
   text-decoration: none;
   color: black;
-  "&:hover": {
-    text-decoration: underline;
+  &:hover {
+    color: purple;
   }
 `;
 
@@ -26,7 +26,8 @@ const Breadcrumb = ({ children, links, ...props }) => (
       if (link.href) {
         return (
           <StyledBreadcrumb>
-            <StyledText href={link.href}>{link.name} / </StyledText>
+            <StyledLink href={link.href}>{link.name}</StyledLink>
+            <Text> / </Text>
           </StyledBreadcrumb>
         );
       } else {

@@ -10,13 +10,12 @@ import {
   Grid,
 } from "../../components";
 
-const BookDetails = ({ bookId }) => {
+const BookDetails = ({ bookId, breadCrumbPath, breadCrumbName }) => {
   const { book, bookLoading, bookError } = useGetBook(bookId);
   const [displayDescription, setDisplayDescription] = useState(false);
   useEffect(() => {
     if (bookError || bookLoading || !book) {
       setDisplayDescription(false);
-      console.log(book, bookLoading, bookError);
     } else {
       setDisplayDescription(true);
     }
@@ -28,12 +27,12 @@ const BookDetails = ({ bookId }) => {
         <Section>
           <Breadcrumb
             links={[
-              { href: "/", name: "Home" },
+              { href: `${breadCrumbPath}`, name: `${breadCrumbName}` },
               { name: `${book.title} Details` },
             ]}
           />
           <Grid gridTemplate={"auto/ .75fr 2fr .75fr"}>
-            <Flex></Flex>
+            <Flex>{/* Filler */}</Flex>
             <Flex
               direction={"column"}
               justify={"flex-start"}
@@ -61,10 +60,13 @@ const BookDetails = ({ bookId }) => {
 
 export async function getServerSideProps(context) {
   const bookId = context.params.book;
+  const { breadCrumbPath, breadCrumbName } = context.query;
 
   return {
     props: {
-      bookId: bookId ?? null,
+      breadCrumbPath,
+      breadCrumbName,
+      bookId,
     },
   };
 }
