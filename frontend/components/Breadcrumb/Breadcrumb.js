@@ -25,14 +25,14 @@ const Breadcrumb = ({ children, links, ...props }) => (
     {links.map((link) => {
       if (link.href) {
         return (
-          <StyledBreadcrumb>
+          <StyledBreadcrumb key={"link"}>
             <StyledLink href={link.href}>{link.name}</StyledLink>
             <Text> / </Text>
           </StyledBreadcrumb>
         );
       } else {
         return (
-          <StyledBreadcrumb>
+          <StyledBreadcrumb key={"text"}>
             <Text fontWeight={"Bolder"}>{link.name}</Text>
           </StyledBreadcrumb>
         );

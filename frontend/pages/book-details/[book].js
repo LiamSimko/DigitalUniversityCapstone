@@ -3,8 +3,6 @@ import { useGetBook } from "../../api/books";
 import {
   Breadcrumb,
   Flex,
-  Footer,
-  Header,
   Section,
   Text,
   Grid,
@@ -22,7 +20,6 @@ const BookDetails = ({ bookId, breadCrumbPath, breadCrumbName }) => {
   }, [book, bookError, bookLoading]);
   return (
     <>
-      <Header />
       {displayDescription && (
         <Section>
           <Breadcrumb
@@ -36,7 +33,7 @@ const BookDetails = ({ bookId, breadCrumbPath, breadCrumbName }) => {
             <Flex
               direction={"column"}
               justify={"flex-start"}
-              gap={".5em"}
+              gap={"1em"}
               align={"start"}
             >
               <Text fontSize={"2em"} fontWeight={"Bolder"}>
@@ -53,7 +50,6 @@ const BookDetails = ({ bookId, breadCrumbPath, breadCrumbName }) => {
           </Grid>
         </Section>
       )}
-      <Footer />
     </>
   );
 };

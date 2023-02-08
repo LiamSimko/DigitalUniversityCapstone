@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from "react";
 import {
   Section,
-  Header,
   Text,
-  Footer,
   Button,
   Flex,
   Grid,
@@ -21,8 +19,6 @@ const Home = () => {
 
   return (
     <>
-      <Header />
-
       {showModal && (
         <AddBookModal closeModal={() => toggleModal()}></AddBookModal>
       )}
@@ -42,6 +38,7 @@ const Home = () => {
             {books.map((book) => {
               return (
                 <Book
+                  key={book.id}
                   title={book.title}
                   author={`${book.author.firstName} ${book.author.lastName}`}
                   href={`/book-details/${book.id}`}
@@ -53,7 +50,6 @@ const Home = () => {
           </Grid>
         )}
       </Section>
-      <Footer></Footer>
     </>
   );
 };

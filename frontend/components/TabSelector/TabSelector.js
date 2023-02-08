@@ -4,7 +4,7 @@ import { useRouter } from "next/router";
 const StyledTabSelector = styled.a`
   font-family: Poppins;
   font-weight: Bolder;
-  margin: 0.2em 0.2em 0px 1.5em;
+  margin: .2em .2em 0px 1.5em;
   color: ${({ selected }) => (selected ? "DodgerBlue" : "DimGray")};
   cursor: ${({ selected }) => (selected ? "auto" : "pointer")};
 `;

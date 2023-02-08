@@ -1,29 +1,14 @@
-import React, { useEffect, useState } from "react";
-import {
-  Section,
-  Header,
-  Text,
-  Footer,
-  Flex,
-  Grid,
-  Book,
-  Breadcrumb,
-} from "../components";
+import React from "react";
+import { Section, Text, Flex, Grid, Book, Breadcrumb } from "../components";
 import { useGetBooks } from "../api/books";
 import { useGetAuthors } from "../api/authors";
 
 const Authors = () => {
-  const [showModal, setShowModal] = useState(false);
   const { authors, authorsLoading, authorsError } = useGetAuthors();
   const { books, booksLoading, booksError } = useGetBooks();
-  const toggleModal = () => {
-    setShowModal(!showModal);
-  };
 
   return (
     <>
-      <Header />
-
       <Section background={"#dfdfdf"}>
         <Breadcrumb
           links={[{ href: "/", name: "Home" }, { name: "Authors" }]}
@@ -51,7 +36,7 @@ const Authors = () => {
                     .length > 0
                 ) {
                   return (
-                    <>
+                    <React.Fragment key={authorGrouping.id}>
                       <Text fontSize={"2em"} fontWeight={"Bolder"}>
                         {authorGrouping.firstName} {authorGrouping.lastName}:
                       </Text>
@@ -63,6 +48,7 @@ const Authors = () => {
                           .map((book) => {
                             return (
                               <Book
+                                key={book.id}
                                 title={book.title}
                                 author={`${book.author.firstName} ${book.author.lastName}`}
                                 href={`/book-details/${book.id}`}
@@ -72,23 +58,22 @@ const Authors = () => {
                             );
                           })}
                       </Grid>
-                    </>
+                    </React.Fragment>
                   );
                 } else {
                   return (
-                    <>
+                    <React.Fragment key={authorGrouping.id}>
                       <Text fontSize={"2em"} fontWeight={"Bolder"}>
                         {authorGrouping.firstName} {authorGrouping.lastName}:
                       </Text>
                       <Text fontSize={"1.5em"}>No Books Available</Text>
-                    </>
+                    </React.Fragment>
                   );
                 }
               })}
             </Flex>
           )}
       </Section>
-      <Footer></Footer>
     </>
   );
 };

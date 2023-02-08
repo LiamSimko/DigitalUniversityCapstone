@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 
-const StyledTextWrap = styled.text`
+const StyledTextWrap = styled.span`
   font-family: Poppins;
   font-size: ${({ fontSize }) => fontSize ?? "inherit"};
   font-weight: ${({ fontWeight }) => fontWeight ?? "inherit"};

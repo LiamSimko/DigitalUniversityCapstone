@@ -7,6 +7,7 @@ const StyledSection = styled.section`
   flex: 1 1 auto;
   padding: 3rem 1rem;
   min-height: calc(100vh - 9rem);
+  
   background: #dfdfdf;
   background: ${({ background }) => background ?? ""};
   margin: 0;

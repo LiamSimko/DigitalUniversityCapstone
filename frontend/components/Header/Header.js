@@ -44,7 +44,7 @@ const Header = () => {
     } else {
       setSelected([false, false]);
     }
-  }, []);
+  }, [router.pathname]);
   return (
     <HeaderWrapper>
       <Container>

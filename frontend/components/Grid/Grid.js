@@ -2,7 +2,6 @@ import styled from "@emotion/styled";
 
 const StyledGrid = styled.div`
   display: grid;
-  
   ${({ gap }) => `gap: ${gap};`}
   ${({ margin }) => `margin: ${margin};`}
   ${({ gridTemplate }) => `grid-template: ${gridTemplate};`}
