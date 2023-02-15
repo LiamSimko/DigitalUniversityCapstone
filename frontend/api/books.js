@@ -7,6 +7,10 @@ export const useGetBooks = () => {
         id
         title
         coverImage
+        categories {
+          id
+		  name
+        }
         author {
           id
           firstName
@@ -16,12 +20,13 @@ export const useGetBooks = () => {
     }
   `;
 
-  const { loading, error, data } = useQuery(query);
+  const { loading, error, data, refetch } = useQuery(query);
 
   return {
     booksLoading: loading,
     booksError: error,
     books: data?.getBooks || [],
+    refetchBooks: refetch(),
   };
 };
 
@@ -32,6 +37,9 @@ export const useGetBook = (id) => {
         id
         title
         coverImage
+        categories {
+          id
+        }
         author {
           id
           firstName

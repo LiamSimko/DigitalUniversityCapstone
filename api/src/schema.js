@@ -197,10 +197,12 @@ export const resolvers = {
       categories.filter(category => categoryIds.includes(category.id))
   },
   Author: {
-    books: ({ id: bookId }) => books.filter(book => book.id === bookId)
+    books: ({ books: bookIds }) =>
+      books.filter(book => bookIds?.includes(book.id))
   },
   Category: {
-    books: ({ id: bookId }) => books.filter(book => book.id === bookId)
+    books: ({ books: bookIds }) =>
+      books.filter(book => bookIds?.includes(book.id))
   },
   Query: {
     getBooks: () => books,
