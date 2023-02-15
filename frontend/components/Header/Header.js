@@ -1,7 +1,7 @@
+import { useState, useLayoutEffect } from "react";
 import styled from "@emotion/styled";
 import Text from "../Text";
 import TabSelector from "../TabSelector";
-import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 
 const HeaderWrapper = styled.header`
@@ -26,29 +26,31 @@ const Container = styled.div`
   margin: 0;
   margin-left: 2%;
   padding: 0;
-`;
-const Logo = styled.img`
-  width: 5%;
-  height: 50%;
-  padding: 1%;
+  img {
+    width: 5%;
+    height: 50%;
+    padding: 1%;
+  }
 `;
 
 const Header = () => {
   const [selected, setSelected] = useState([true, false]);
   const router = useRouter();
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (router.pathname === "/") {
-      setSelected([true, false]);
+      setSelected([true, false, false]);
     } else if (router.pathname === "/authors") {
-      setSelected([false, true]);
+      setSelected([false, true, false]);
+    } else if (router.pathname === "/categories") {
+      setSelected([false, false, true]);
     } else {
-      setSelected([false, false]);
+      setSelected([false, false, false]);
     }
   }, [router.pathname]);
   return (
     <HeaderWrapper>
       <Container>
-        <Logo src="/DU-Logo-Mark.svg" alt="Digital U Logo" />
+        <img src="/DU-Logo-Mark.svg" alt="Digital U Logo" />
         <Text fontWeight={"1000"} fontSize={"30px"}>
           Liam Simko Capstone
         </Text>
@@ -57,6 +59,9 @@ const Header = () => {
         </TabSelector>
         <TabSelector selected={selected[1]} href={"/authors"}>
           Authors
+        </TabSelector>
+        <TabSelector selected={selected[2]} href={"/categories"}>
+          Categories
         </TabSelector>
       </Container>
     </HeaderWrapper>

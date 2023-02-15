@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import {
   Section,
   Text,
@@ -12,9 +12,10 @@ import { useGetBooks } from "../api/books";
 
 const Home = () => {
   const [showModal, setShowModal] = useState(false);
-  const { books, booksLoading, booksError } = useGetBooks();
+  const { books, booksLoading, booksError, refetchBooks } = useGetBooks();
   const toggleModal = () => {
     setShowModal(!showModal);
+    refetchBooks;
   };
 
   return (

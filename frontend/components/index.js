@@ -1,11 +1,11 @@
-import { from } from "@apollo/client";
-
 export { default as AddBookModal } from "./AddBookModal";
+export { default as AddCategoryModal } from "./AddCategoryModal";
 export { default as Book } from "./Book";
 export { default as Button } from "./Button";
 export { default as Footer } from "./Footer";
 export { default as Header } from "./Header";
 export { default as Text } from "./Text";
+export { default as Table } from "./Table";
 // Export { default as Layout } from "./Layout";
 export { default as Modal } from "./Modal";
 // export { default as RemoveBookModal } from "./RemoveBookModal";

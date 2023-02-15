@@ -30,7 +30,7 @@ const StyledForm = styled.form`
   width: 100%;
 `;
 
-const AddBookModal = ({ closeModal, ...props }) => {
+const AddBookModal = ({ closeModal }) => {
   const { addBook } = useAddBook();
   const { addAuthor } = useAddAuthor();
   const { authors } = useGetAuthors();
@@ -38,11 +38,12 @@ const AddBookModal = ({ closeModal, ...props }) => {
   const ref = React.createRef();
   const onSubmitForm = async (data) => {
     let authorId;
-    const result = authors.filter(
-      (author) => data.name == author.firstName + " " + author.lastName
+    const result = authors.find(
+      (author) => data.name === author.firstName + " " + author.lastName
     );
-    if (result.length > 0) {
-      authorId = result[0].id;
+    if (result) {
+      console.log(result);
+      authorId = result.id;
     } else {
       const newAuthor = await addAuthor(
         data.name.split(" ")[0],
