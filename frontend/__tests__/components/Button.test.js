@@ -7,7 +7,7 @@ import userEvent from "@testing-library/user-event";
 describe("Button", () => {
   it("renders without error", async () => {
     render(
-      <MockedProvider addTypename={false}>
+      <MockedProvider>
         <Button>test</Button>
       </MockedProvider>
     );

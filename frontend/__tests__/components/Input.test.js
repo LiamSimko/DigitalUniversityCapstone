@@ -6,7 +6,7 @@ import "@testing-library/jest-dom";
 describe("Input", () => {
   it("renders without error", async () => {
     render(
-      <MockedProvider addTypename={false}>
+      <MockedProvider>
         <Input></Input>
       </MockedProvider>
     );

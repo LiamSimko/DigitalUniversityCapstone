@@ -6,7 +6,7 @@ import "@testing-library/jest-dom";
 describe("Footer", () => {
   it("renders without error", async () => {
     render(
-      <MockedProvider addTypename={false}>
+      <MockedProvider>
         <Footer></Footer>
       </MockedProvider>
     );

@@ -8,7 +8,7 @@ import {
 
 jest.mock("@apollo/client");
 
-describe("get Book test", () => {
+describe("Books tests", () => {
   describe("useGetBook", () => {
     it("should return data", () => {
       const data = {
@@ -29,7 +29,6 @@ describe("get Book test", () => {
 
       useQuery.mockReturnValue({ loading: false, error: null, data });
       const { book, bookError, bookLoading } = useGetBook();
-
       expect(book).toEqual(data.getBook);
       expect(bookError).toEqual(null);
       expect(bookLoading).toEqual(false);
@@ -38,7 +37,6 @@ describe("get Book test", () => {
     it("should return null", () => {
       useQuery.mockReturnValue({ loading: false, error: null, data: null });
       const { book, bookError, bookLoading } = useGetBook();
-
       expect(book).toEqual({});
       expect(bookError).toEqual(null);
       expect(bookLoading).toEqual(false);
@@ -77,18 +75,26 @@ describe("get Book test", () => {
         ],
       };
 
-      useQuery.mockReturnValue({ loading: false, error: null, data });
+      useQuery.mockReturnValue({
+        loading: false,
+        error: null,
+        data,
+        refetch: jest.fn(),
+      });
       const { books, booksError, booksLoading } = useGetBooks();
-
       expect(books).toEqual(data.getBooks);
       expect(booksError).toEqual(null);
       expect(booksLoading).toEqual(false);
     });
 
     it("should return null", () => {
-      useQuery.mockReturnValue({ loading: false, error: null, data: null });
+      useQuery.mockReturnValue({
+        loading: false,
+        error: null,
+        data: null,
+        refetch: jest.fn(),
+      });
       const { books, booksError, booksLoading } = useGetBooks();
-
       expect(books).toEqual([]);
       expect(booksError).toEqual(null);
       expect(booksLoading).toEqual(false);

@@ -10,7 +10,7 @@ jest.mock("next/router", () => ({ useRouter: jest.fn() }));
 describe("Book", () => {
   it("renders without error", async () => {
     render(
-      <MockedProvider addTypename={false}>
+      <MockedProvider>
         <Book
           href={"/"}
           breadCrumbPath={"/"}
@@ -24,13 +24,13 @@ describe("Book", () => {
   });
 
   it("should render with href", () => {
-    const push = jest.fn(); // the component uses `router.push` only
+    const push = jest.fn();
 
     useRouter.mockImplementation(() => ({
       push,
     }));
     render(
-      <MockedProvider addTypename={false}>
+      <MockedProvider>
         <Book
           href={"/"}
           breadCrumbPath={"/"}

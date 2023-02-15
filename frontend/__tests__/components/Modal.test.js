@@ -6,7 +6,7 @@ import "@testing-library/jest-dom";
 describe("Modal", () => {
   it("renders without error", async () => {
     render(
-      <MockedProvider addTypename={false}>
+      <MockedProvider>
         <Modal title={'title'}></Modal>
       </MockedProvider>
     );

@@ -4,19 +4,17 @@ import Text from "../Text";
 const StyledBreadcrumbList = styled.ul`
   padding: 10px 0px;
   list-style: none;
-`;
-
-const StyledBreadcrumb = styled.li`
-  display: inline;
-  font-size: 18px;
-`;
-
-const StyledLink = styled.a`
-  font-family: Poppins;
-  text-decoration: none;
-  color: black;
-  &:hover {
-    color: purple;
+  li {
+    display: inline;
+    font-size: 18px;
+  }
+  a {
+    font-family: Poppins;
+    text-decoration: none;
+    color: black;
+    &:hover {
+      color: purple;
+    }
   }
 `;
 
@@ -25,16 +23,16 @@ const Breadcrumb = ({ children, links, ...props }) => (
     {links.map((link) => {
       if (link.href) {
         return (
-          <StyledBreadcrumb key={"link"}>
-            <StyledLink href={link.href}>{link.name}</StyledLink>
+          <li key={"link"}>
+            <a href={link.href}>{link.name}</a>
             <Text> / </Text>
-          </StyledBreadcrumb>
+          </li>
         );
       } else {
         return (
-          <StyledBreadcrumb key={"text"}>
+          <li key={"text"}>
             <Text fontWeight={"Bolder"}>{link.name}</Text>
-          </StyledBreadcrumb>
+          </li>
         );
       }
     })}

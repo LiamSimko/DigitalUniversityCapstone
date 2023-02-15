@@ -6,7 +6,7 @@ import "@testing-library/jest-dom";
 describe("Toast", () => {
   it("renders without error", async () => {
     render(
-      <MockedProvider addTypename={false}>
+      <MockedProvider>
         <Toast message={"success"} type={"success"}></Toast>
       </MockedProvider>
     );
@@ -14,7 +14,7 @@ describe("Toast", () => {
   });
   it("renders without error", async () => {
     render(
-      <MockedProvider addTypename={false}>
+      <MockedProvider>
         <Toast message={"error"} type={"error"}></Toast>
       </MockedProvider>
     );

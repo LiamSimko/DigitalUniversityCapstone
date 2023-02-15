@@ -52,13 +52,13 @@ const Table = ({ columns, data }) => {
 };
 
 Table.propTypes = {
-  rowData: PropTypes.array,
-  headers: PropTypes.array,
+  columns: PropTypes.array,
+  data: PropTypes.array,
 };
 
 Table.defaultProps = {
-  rowData: [],
-  headers: [],
+  columns: [],
+  data: [],
 };
 
 export default Table;

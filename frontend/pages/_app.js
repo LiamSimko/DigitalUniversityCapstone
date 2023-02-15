@@ -17,7 +17,6 @@ const App = ({ Component, pageProps }) => {
   useEffect(() => {
     const siteWidth = 1280;
     const scale = screen.width / siteWidth;
-
     document
       .querySelector('meta[name="viewport"]')
       .setAttribute(

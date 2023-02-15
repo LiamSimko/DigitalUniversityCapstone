@@ -102,7 +102,7 @@ describe("Homepage", () => {
       </ApolloProvider>
     );
 
-    expect(screen.getByText("Liam Simko Capstone")).toBeInTheDocument();
+    expect(screen.getByText("My Library")).toBeInTheDocument();
   });
   it("should open the add book modal", () => {
     render(

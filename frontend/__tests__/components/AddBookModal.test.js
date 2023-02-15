@@ -1,6 +1,5 @@
 import { AddBookModal } from "../../components";
 import { render, screen, waitFor } from "@testing-library/react";
-import { createMockClient } from "mock-apollo-client";
 import { MockedProvider } from "@apollo/client/testing";
 import "@testing-library/jest-dom";
 import { useAddBook } from "../../api/books";
@@ -53,7 +52,7 @@ describe("AddBookModal", () => {
       authors: [],
     });
     render(
-      <MockedProvider addTypename={false}>
+      <MockedProvider>
         <AddBookModal></AddBookModal>
       </MockedProvider>
     );
@@ -133,7 +132,7 @@ describe("AddBookModal", () => {
     });
     const onClose = jest.fn();
     render(
-      <MockedProvider addTypename={false}>
+      <MockedProvider>
         <AddBookModal closeModal={onClose}></AddBookModal>
       </MockedProvider>
     );

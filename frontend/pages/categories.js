@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from "react";
+import React, { useState } from "react";
 import {
   Section,
   Text,
@@ -11,23 +11,16 @@ import { useGetCategories } from "../api/categories";
 
 const Categories = () => {
   const [showModal, setShowModal] = useState(false);
-  const {
-    categories,
-    categoriesLoading: categoriesLoading,
-    categoriesError,
-    refetchCategories,
-  } = useGetCategories();
+  const { categories, categoriesLoading, categoriesError, refetchCategories } =
+    useGetCategories();
   const toggleModal = () => {
     setShowModal(!showModal);
     refetchCategories;
   };
-  const columns = useMemo(
-    () => [
-      { Header: "Categories", accessor: "name" },
-      { Header: "Number of Books", accessor: "books.length" },
-    ],
-    []
-  );
+  const columns = [
+    { Header: "Categories", accessor: "name" },
+    { Header: "Number of Books", accessor: "books.length" },
+  ];
   return (
     <>
       {showModal && (

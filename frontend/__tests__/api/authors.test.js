@@ -51,7 +51,12 @@ describe("author tests", () => {
         ],
       };
 
-      useQuery.mockReturnValue({ loading: false, error: null, data });
+      useQuery.mockReturnValue({
+        loading: false,
+        error: null,
+        data,
+        refetch: jest.fn(),
+      });
       const { authors, authorsError, authorsLoading } = useGetAuthors();
 
       expect(authors).toEqual(data.getAuthors);
@@ -60,7 +65,12 @@ describe("author tests", () => {
     });
 
     it("should return null", () => {
-      useQuery.mockReturnValue({ loading: false, error: null, data: null });
+      useQuery.mockReturnValue({
+        loading: false,
+        error: null,
+        data: null,
+        refetch: jest.fn(),
+      });
       const { authors, authorsError, authorsLoading } = useGetAuthors();
 
       expect(authors).toEqual([]);

@@ -6,7 +6,7 @@ import "@testing-library/jest-dom";
 describe("Breadcrumb", () => {
   it("renders with text", async () => {
     render(
-      <MockedProvider addTypename={false}>
+      <MockedProvider>
         <Breadcrumb links={[{ name: "title" }]}></Breadcrumb>
       </MockedProvider>
     );
@@ -14,7 +14,7 @@ describe("Breadcrumb", () => {
   });
   it("should render a link with href", () => {
     render(
-      <MockedProvider addTypename={false}>
+      <MockedProvider>
         <Breadcrumb links={[{ name: "title", href: "/test" }]}></Breadcrumb>
       </MockedProvider>
     );
